@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+        </div>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <em *ngIf="loginForm.controls['email']?.invalid && (loginForm.controls['email']?.touched || Mouse)"> Required</em>
+              <input (ngModel)="email" name="email" type="email" class="form-control" required id="email"  aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <em *ngIf="loginForm.controls['password']?.invalid && (loginForm.controls['password']?.touched || Mouse)">Required</em>
+              <input (ngModel)="password" name="password" required type="password" class="form-control" id="password">
+            </div>
+            <span (mouseenter)="Mouse=true" (mouseleave)="Mouse=false">
+            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button></span>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
