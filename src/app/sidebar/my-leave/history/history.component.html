@@ -1,0 +1,21 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">History Of Leaves</div>
+    <div class="card-body">
+<div *ngFor="let user of userList" class="my-3">
+<p>
+  <a class="btn btn-outline-dark col-md-12 py-4"  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    {{user.LeaveType}}
+  </a>
+
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <span>From:{{user.StartDate}}</span><span>To:{{user.EndDate}}</span>
+    <strong>Reason:{{user.Reason}}</strong>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>

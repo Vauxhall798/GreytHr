@@ -13,6 +13,9 @@ import { NameeditorComponent } from './forms/nameeditor/nameeditor.component';
 
 import { SideModule } from './sidebar/side.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './sidebar/home/home.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -24,7 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-
     ReactiveFormsModule,
     SideModule,
     RouterModule.forRoot(appRoutes)
@@ -32,7 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

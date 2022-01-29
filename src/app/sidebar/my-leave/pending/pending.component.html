@@ -1,0 +1,38 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">Pending For Approval</div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Leave-Type</th>
+              <th>Start-Date</th>
+              <th>Session-Start</th>
+              <th>End-Date</th>
+              <th>Session-End</th>
+              <th>Withdraw Leave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of Userlist">
+              <td>{{user.UserId}}</td>
+              <td>{{user.LeaveType}}</td>
+              <td>{{user.StartDate}}</td>
+              <td>{{user.SessionStart}}</td>
+              <td>{{user.EndDate}}</td>
+              <td>{{user.SessionEnd}}</td>
+              <td>
+                <button class="btn-sm btn-primary mx-2" [routerLink]="['/nav/my-leave/update',user.UserId]">Edit</button>
+                <button class="btn-sm btn-primary mx-1" (click)="delete(user.UserId)">Withdraw</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    </div>
+  </div>
+

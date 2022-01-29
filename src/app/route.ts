@@ -1,12 +1,13 @@
 import { Routes } from "@angular/router";
 
 import { NameeditorComponent } from "./forms/nameeditor/nameeditor.component";
+import { AuthGuard } from "./guards/auth.guard";
 
-import { SideComponent } from "./sidebar/side.component";
 
 
 export const appRoutes:Routes=[
 {path:'login',component:NameeditorComponent},
-{path:'nav',component:SideComponent},
-{path:'',redirectTo:'/nav',pathMatch:'full'}
+{path:'nav',canActivate:[AuthGuard],loadChildren:()=>import('../app/sidebar/side.module').then(m=>m.SideModule)},
+{path:'',redirectTo:'/login',pathMatch:'full'},
+
 ]

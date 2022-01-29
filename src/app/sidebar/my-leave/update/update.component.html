@@ -1,0 +1,76 @@
+<div class="bg-white px-2">
+  <h2 class="py-1 ">Editing Leave Application</h2>
+  <form #leaveform="ngForm" (ngSubmit)="Updateform()">
+    <div class="row">
+      <div class="col-md-8 my-2">
+        <label for="type" class="form-label">Leave type</label>
+        <em *ngIf="leaveform.controls['type']?.invalid && (leaveform.controls['type']?.touched || Mouse)"> Required</em>
+        <input [(ngModel)]="userList.LeaveType" type="text" id="type" name="type" class="form-control" placeholder="Select Type" required>
+      </div>
+      <div class="col-md-4 my-2">
+
+      </div>
+      <div class="col-md-4 my-2">
+       <label for="date" class="form-label">From Date</label>
+       <em *ngIf="leaveform.controls['datestart']?.invalid && (leaveform.controls['datestart']?.touched || Mouse)"> Required</em>
+       <input [(ngModel)]="userList.StartDate" type="date" name="datestart" class="form-control" id="date" placeholder="Select date" required>
+      </div>
+      <div class="col-md-4 my-2">
+        <label for="dropdown" class="form-label">Sessions</label>
+        <em *ngIf="leaveform.controls['sessionstart']?.invalid && (leaveform.controls['sessionstart']?.touched || Mouse)"> Required</em>
+        <select name="sessionstart" class="form-control" id="dropdown" [(ngModel)]="userList.SessionStart" required>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+          <option value="Full">Full-day</option>
+        </select>
+
+      </div>
+      <div class="col-md-4 my-2"></div>
+      <div class="col-md-4 my-2">
+        <label for="date2" class="form-label">To Date</label>
+        <em *ngIf="leaveform.controls['dateend']?.invalid && (leaveform.controls['dateend']?.touched || Mouse)"> Required</em>
+        <input type="date" name="dateend" class="form-control" id="date2" placeholder="Select date" [(ngModel)]="userList.EndDate" required>
+       </div>
+       <div class="col-md-4 my-2">
+         <label for="dropdown2" class="form-label">Sessions</label>
+         <em *ngIf="leaveform.controls['sessionend']?.invalid && (leaveform.controls['sessionend']?.touched || Mouse)"> Required</em>
+         <select name="sessionend"  class="form-control" id="dropdown2" [(ngModel)]="userList.SessionEnd" required>
+           <option value="Morning">Morning</option>
+           <option value="Afternoon">Afternoon</option>
+           <option value="Evening">Evening</option>
+           <option value="Full">Full-day</option>
+         </select>
+
+       </div>
+       <div class="col-md-4 my-2"></div>
+       <div class="col-md-3 my-2">
+       <span><i class="fas fa-user mx-2"></i>Applying to:</span>
+       </div>
+       <div class="col-md-9 my-2"></div>
+       <div class="col-md-3 my-2">
+        <label for="add" >CC to:</label><br>
+        <span ><i class="fas fa-plus-circle mx-2"></i>Add:</span>
+       </div>
+       <div class="col-md-9 my-2"></div>
+       <div class="col-md-6 my-2">
+         <label for="contact" class="form-label">Contact Details</label>
+         <em *ngIf="leaveform.controls['details']?.invalid && (leaveform.controls['details']?.touched || Mouse)"> Required</em>
+         <input name="details" type="text" id="contact" class="form-control" placeholder="Enter your Details" required [(ngModel)]="userList.Contact">
+       </div>
+       <div class="col-md-6 my-2"></div>
+       <div class="col-md-12 my-2">
+         <label for="textarea" class="form-label">Reason</label>
+         <em *ngIf="leaveform.controls['reason']?.invalid && (leaveform.controls['reason']?.touched || Mouse)"> Required</em>
+         <textarea name="reason" id="textarea" cols="5" rows="2" class="form-control" [(ngModel)]="userList.Reason" required></textarea>
+       </div>
+       <div class="col-md-4 my-2"></div>
+       <div class="col-md-8 my-2">
+         <span (mouseenter)="Mouse=true" (mouseleave)="Mouse=false">
+         <button class="btn btn-success mx-2" [disabled]="leaveform.invalid">Submit</button></span>
+       </div>
+
+
+    </div>
+    </form>
+    </div>

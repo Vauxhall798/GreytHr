@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nameeditor',
@@ -10,16 +11,32 @@ import { Router } from '@angular/router';
 export class NameeditorComponent implements OnInit  {
   public loginForm!:FormGroup
 
-  constructor(private formBuilder:FormBuilder,private router:Router) { }
+  constructor(private auth:AuthService,private router:Router) { }
 
   email:any
   password:any
   Mouse:boolean=false;
   ngOnInit(): void {
+    if(this.auth.isLoggedIn()){
+      this.router.navigate(['nav/home']);
+    }
 
   }
+
+
+
   login(formValues: any){
-    this.router.navigate(['nav']);
+      this.auth.login(formValues).subscribe(
+        (result: any)=>{
+          this.router.navigate(['nav/home']);
+        },
+        (err:Error)=>{
+          alert(err.message)
+        }
+      )
+
+    console.log(formValues)
+
 
   }
 
