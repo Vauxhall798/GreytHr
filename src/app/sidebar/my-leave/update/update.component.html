@@ -5,7 +5,11 @@
       <div class="col-md-8 my-2">
         <label for="type" class="form-label">Leave type</label>
         <em *ngIf="leaveform.controls['type']?.invalid && (leaveform.controls['type']?.touched || Mouse)"> Required</em>
-        <input [(ngModel)]="userList.LeaveType" type="text" id="type" name="type" class="form-control" placeholder="Select Type" required>
+        <select [(ngModel)]="userList.LeaveType" type="text" id="type" name="type" class="form-control" placeholder="Select Type" required>
+          <option value="Personal">Personal</option>
+          <option value="Vacation">Vacation</option>
+          <option value="Health">Health Issues</option>
+        </select>
       </div>
       <div class="col-md-4 my-2">
 

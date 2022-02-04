@@ -23,7 +23,7 @@ export const sideRoute:Routes=[
     {path:'calendar',component:HolidayCalendarComponent},
     {path:'attendance',component:AttendanceComponent},
     {path:'my-leave',loadChildren:()=>import("../sidebar/my-leave/my-leave.module").then(m=>m.MyLeaveModule)},
-    {path:'',redirectTo:'/nav/home',pathMatch:'full'}
+    {path:'',redirectTo:'/nav/home',pathMatch:"full"}
   ]}
 ]
 

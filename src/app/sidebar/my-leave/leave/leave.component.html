@@ -6,11 +6,15 @@
       <div class="col-md-8 my-2">
         <label for="type" class="form-label">Leave type</label>
         <em *ngIf="leaveform.controls['type']?.invalid && (leaveform.controls['type']?.touched || Mouse)"> Required</em>
-        <input [(ngModel)]="userList.LeaveType" type="text" id="type" name="type" class="form-control" placeholder="Select Type" required>
+        <select [(ngModel)]="userList.LeaveType" type="text" id="type" name="type" class="form-control" placeholder="Select Type" required>
+          <option value="Personal">Personal</option>
+          <option value="Vacation">Vacation</option>
+          <option value="Health">Health Issues</option>
+        </select>
       </div>
       <div class="col-md-4 my-2">
-        <span>Leave Already Taken:</span><br>
-        <span>{{awakeMax()}} Days</span>
+        <strong><span>Leave Already Taken:</span><br>
+        <span>{{awakeMax()}} Days</span></strong>
       </div>
       <div class="col-md-4 my-2">
        <label for="date" class="form-label">From Date</label>
@@ -29,8 +33,8 @@
 
       </div>
       <div class="col-md-4 my-2">
-        <span>Leaves Remaining</span><br>
-        <span>{{3-awakeMax()}} Days Left</span>
+        <strong><span>Leaves Remaining</span><br>
+        <span>{{3-awakeMax()}} Days Left</span></strong>
       </div>
       <div class="col-md-4 my-2">
         <label for="date2" class="form-label">To Date</label>
